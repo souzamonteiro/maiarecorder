@@ -1,2 +1,2 @@
-# maiarecorder
+# MaiaRecorder
 Maia Cloud Lab Screen Recorder.
