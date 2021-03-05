@@ -7,42 +7,65 @@
         <script src="js/recorder.js"></script>
 
         <style type="text/css">
-            video#recordPlayback {
+            body {
+                background-image: url(images/background.jpg);
+                background-color: white;
+                background-repeat: no-repeat;
+                width: auto;
+            }
+            video#videoPlayer {
                 position: absolute;
-                top: 20px;
+                top: 40px;
                 max-width: 50%;
                 height: auto;
-                z-index: 21;
+                z-index: 20;
             }
-
-            div#recordControls {
+            div#controls {
                 position: absolute;
                 display: inline-flex;
-                z-index: 20;
-                top: 0;
-                left: 25px;
-            }
-            .recordBtn:active {
-                background-color: rgba(255,255,255, 0.4);
+                padding: 5px 4px;
+                border: 1px solid black;
+                background-color: white);
                 border-radius: 4px;
-                border:1px solid rgba(255,255,255, 0.6);
-                cursor:pointer;
-                color: #3c3c3c;
-                padding:2px 4px;
+                top: 0;
+                left: 20px;
+                z-index: 10;
+            }
+            .logo {
+                margin-left: 5px;
+                margin-right: 10px;
+                vertical-align: text-bottom;
+                width: 20px;
+                height: auto;
+            }
+            .buttonControl:active {
                 margin: 2px;
+                padding: 2px 4px;
+                border: 1px solid black;
+                background-color: white);
+                border-radius: 4px;
+                cursor: pointer;
+                color: black;
                 font-weight: bold;
-
             }
-            .recordBtn:hover {
-                background-color:rgba(255,255,255, 0.6);
+            .buttonControl:hover {
+                background-color: whitesmoke;
             }
-            .recordBtn:disabled {
-                position:relative;
-                top:1px;
-                background-color:rgba(255,255,255, 0.2);
-                border:1px solid rgba(255,255,255, 0.3);
-                color: #9a9a9a;
-
+            .buttonControl:disabled {
+                position: relative;
+                top: 0;
+                border: 1px solid grey;
+                background-color: white;
+                color: grey;
+            }
+            .maiarecorder-logo {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                color: yellow;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-weight: bold;
+                font-size: larger;
             }
         </style>
     </head>
@@ -51,14 +74,18 @@
         <div>
             <video controls playsinline autoplay hidden id="videoPlayer"></video>
         </div>
-        <div id="recordControls">
-            <button class="recordBtn" id="startButton">Record</button>
-            <button class="recordBtn" id="pauseButton" disabled>Pause</button>
-            <button class="recordBtn" id="stopButton" disabled>Stop</button>
-            <button class="recordBtn" id="playButton" disabled>Play</button>
-            <button class="recordBtn" id="saveButton" disabled>Save</button>
+        <div id="controls">
+            <a href="https://www.maiascript.com" target="_blank"><img class="logo" src="images/maiascript.png"></a>
+            <button class="buttonControl" id="startButton">Record</button>
+            <button class="buttonControl" id="pauseButton" disabled>Pause</button>
+            <button class="buttonControl" id="stopButton" disabled>Stop</button>
+            <button class="buttonControl" id="playButton" disabled>Play</button>
+            <button class="buttonControl" id="saveButton" disabled>Save</button>
         </div>
-
+        <div class="maiarecorder-logo">
+            <a href="https://www.maiascript.com/maiarecorder/" target="_blank"><img src="images/maiarecorder.png"></a><br />
+            MaiaRecorder
+        </div>
         <script type="text/javascript">
             var options = {
                 startButton: 'startButton',
