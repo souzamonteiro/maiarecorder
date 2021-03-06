@@ -125,20 +125,20 @@ constructor MaiaRecorder(options) {
         local displayMediaStream
         recordingData = []
 
-        videoOptions = {
+        audioOptions = {
             "video": false,
             "audio": true
         }
-        audioOptions = {
+        videoOptions = {
             "video": {"displaySurface": "browser"},
             "audio": true
         }
 
         try {
-            userMediaStream ?= navigator.mediaDevices.getUserMedia(videoOptions)
-            displayMediaStream ?= navigator.mediaDevices.getDisplayMedia(audioOptions)
+            userMediaStream ?= navigator.mediaDevices.getUserMedia(audioOptions)
+            displayMediaStream ?= navigator.mediaDevices.getDisplayMedia(videoOptions)
         } catch (e) {
-            system.log("Error: " + e)
+            system.showMessageDialog("Error: screen recording is not supported by this browser.")
             return()
         }
 
@@ -152,7 +152,6 @@ constructor MaiaRecorder(options) {
         function onDataAvailable (e) {
             if (e.data && e.data.size > 0) {
                 recordingData.push(e.data)
-                console.log(e.data)
             }
             console.log("available")
         }
